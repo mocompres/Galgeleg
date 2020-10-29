@@ -9,19 +9,19 @@
     tools:layout_editor_absoluteY="-42dp">
 
 
+    <!-- top row -->
+
     <ImageView
         android:id="@+id/imageView"
         android:layout_width="226dp"
         android:layout_height="148dp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.513"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.243"
-        tools:srcCompat="@tools:sample/avatars" />
-
-    <!-- top row -->
+        app:layout_constraintVertical_bias="0.339"
+        android:src="@drawable/galge" />
 
     <TextView
         android:id="@+id/textView3"
@@ -64,7 +64,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="A"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="347dp"
                 tools:layout_editor_absoluteY="396dp" />
 
@@ -73,7 +74,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="B"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="62dp"
                 tools:layout_editor_absoluteY="396dp" />
 
@@ -82,7 +84,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="C"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="7dp"
                 tools:layout_editor_absoluteY="396dp" />
 
@@ -91,7 +94,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="D"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="176dp"
                 tools:layout_editor_absoluteY="396dp" />
 
@@ -100,7 +104,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="E"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="233dp"
                 tools:layout_editor_absoluteY="396dp" />
 
@@ -109,7 +114,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="F"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="119dp"
                 tools:layout_editor_absoluteY="396dp" />
 
@@ -118,7 +124,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="G"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="119dp"
                 tools:layout_editor_absoluteY="396dp" />
 
@@ -136,7 +143,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="H"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="347dp"
                 tools:layout_editor_absoluteY="458dp" />
 
@@ -145,7 +153,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="I"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="62dp"
                 tools:layout_editor_absoluteY="458dp" />
 
@@ -154,7 +163,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="J"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="7dp"
                 tools:layout_editor_absoluteY="458dp" />
 
@@ -163,7 +173,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="K"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="176dp"
                 tools:layout_editor_absoluteY="458dp" />
 
@@ -172,7 +183,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="L"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="233dp"
                 tools:layout_editor_absoluteY="458dp" />
 
@@ -181,7 +193,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="M"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="119dp"
                 tools:layout_editor_absoluteY="458dp" />
 
@@ -190,7 +203,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="N"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="290dp"
                 tools:layout_editor_absoluteY="458dp" />
         </LinearLayout>
@@ -207,7 +221,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="O"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="347dp"
                 tools:layout_editor_absoluteY="522dp" />
 
@@ -216,7 +231,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="P"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="62dp"
                 tools:layout_editor_absoluteY="522dp" />
 
@@ -225,7 +241,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="Q"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="7dp"
                 tools:layout_editor_absoluteY="522dp" />
 
@@ -234,7 +251,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="R"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="176dp"
                 tools:layout_editor_absoluteY="522dp" />
 
@@ -243,7 +261,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="S"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="233dp"
                 tools:layout_editor_absoluteY="522dp" />
 
@@ -252,7 +271,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="T"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="119dp"
                 tools:layout_editor_absoluteY="522dp" />
 
@@ -261,7 +281,8 @@
                 android:layout_width="55dp"
                 android:layout_height="51dp"
                 android:layout_weight="1"
-                android:text="Button"
+                android:text="U"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="290dp"
                 tools:layout_editor_absoluteY="522dp" />
 
@@ -277,7 +298,9 @@
                 android:id="@+id/button22"
                 android:layout_width="55dp"
                 android:layout_height="51dp"
-                android:text="Button"
+                android:text="V"
+                android:textAlignment="center"
+                android:layout_weight="1"
                 tools:layout_editor_absoluteX="347dp"
                 tools:layout_editor_absoluteY="584dp" />
 
@@ -285,7 +308,9 @@
                 android:id="@+id/button5"
                 android:layout_width="55dp"
                 android:layout_height="51dp"
-                android:text="Button"
+                android:text="W"
+                android:layout_weight="1"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="62dp"
                 tools:layout_editor_absoluteY="584dp" />
 
@@ -293,7 +318,9 @@
                 android:id="@+id/button6"
                 android:layout_width="55dp"
                 android:layout_height="51dp"
-                android:text="Button"
+                android:text="X"
+                android:layout_weight="1"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="7dp"
                 tools:layout_editor_absoluteY="584dp" />
 
@@ -301,7 +328,9 @@
                 android:id="@+id/button3"
                 android:layout_width="55dp"
                 android:layout_height="51dp"
-                android:text="Button"
+                android:text="Y"
+                android:layout_weight="1"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="176dp"
                 tools:layout_editor_absoluteY="584dp" />
 
@@ -309,7 +338,9 @@
                 android:id="@+id/button2"
                 android:layout_width="55dp"
                 android:layout_height="51dp"
-                android:text="Button"
+                android:text="Z"
+                android:layout_weight="1"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="233dp"
                 tools:layout_editor_absoluteY="584dp" />
 
@@ -317,7 +348,9 @@
                 android:id="@+id/button4"
                 android:layout_width="55dp"
                 android:layout_height="51dp"
-                android:text="Button"
+                android:text="Æ"
+                android:layout_weight="1"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="119dp"
                 tools:layout_editor_absoluteY="584dp" />
 
@@ -325,10 +358,24 @@
                 android:id="@+id/button"
                 android:layout_width="55dp"
                 android:layout_height="51dp"
-                android:text="Button"
+                android:text="Ø"
+                android:layout_weight="1"
+                android:textAlignment="center"
                 tools:layout_editor_absoluteX="290dp"
                 tools:layout_editor_absoluteY="584dp" />
         </LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+        <Button
+            android:id="@+id/button"
+            android:layout_width="55dp"
+            android:layout_height="51dp"
+            android:text="Å"
+            android:textAlignment="center"
+            tools:layout_editor_absoluteX="290dp"
+            tools:layout_editor_absoluteY="584dp" />
+    </LinearLayout>
     </LinearLayout>
 
 
