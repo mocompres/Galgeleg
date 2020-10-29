@@ -1,8 +1,8 @@
 package com.example.galgeleg;
 
-import org.junit.Test;
+        import org.junit.Test;
 
-import static org.junit.Assert.*;
+        import static org.junit.Assert.*;
 
 /**
  * Eksempel på en JUnit-test
