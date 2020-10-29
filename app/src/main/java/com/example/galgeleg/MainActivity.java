@@ -3,6 +3,7 @@ package com.example.galgeleg;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.AlertDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -24,8 +25,8 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         loadBTN();
 
-        game.muligeOrd.clear();
-        game.muligeOrd.add("skovsnegl");
+        //game.muligeOrd.clear();
+        //game.muligeOrd.add("skovsnegl");
 
         game.startNytSpil();
 
@@ -103,12 +104,22 @@ public class MainActivity extends AppCompatActivity{
         }
 
         if (game.erSpilletSlut()) {
+            Intent i = new Intent(this, EndOfGame.class);
 
             if (game.erSpilletVundet()) {
                 // The game has been won
+                i.putExtra("hasWon", game.erSpilletVundet());
+                i.putExtra("printObj", game.getAntalForkerteBogstaver());
+                this.startActivity(i);
             }
             else if (game.erSpilletTabt()) {
                 // The game has been lost
+
+                i.putExtra("hasWon", game.erSpilletVundet());
+                i.putExtra("printObj", game.getOrdet());
+                this.startActivity(i);
+
+                this.startActivity(i);
             }
             else {
                 // The game is done but neither won or lost
