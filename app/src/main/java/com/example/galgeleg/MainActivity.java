@@ -15,7 +15,8 @@ import java.lang.reflect.Field;
 public class MainActivity extends AppCompatActivity{
 
     static Button[] letterBTN = new Button[29];
-    static Galgelogik game = new Galgelogik();
+    //static Galgelogik game = new Galgelogik();
+    static HangmanController hGame = new HangmanController();
     TextView textViewWordToDisplay;
     ImageView imageView;
 
@@ -28,7 +29,8 @@ public class MainActivity extends AppCompatActivity{
         //game.muligeOrd.clear();
         //game.muligeOrd.add("skovsnegl");
 
-        game.startNytSpil();
+        //game.startNytSpil();
+        hGame.startGame();
 
         imageView = findViewById(R.id.imageView);
 
@@ -78,7 +80,8 @@ public class MainActivity extends AppCompatActivity{
 
         String text = btn.getText().toString().toLowerCase();
 
-        game.gætBogstav(text);
+        //game.gætBogstav(text);
+        hGame.guessLetter(text);
 
         viewStatusOnScreen();
         btn.setEnabled(false);
@@ -86,11 +89,11 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void viewStatusOnScreen(){
-        String visibleWord = game.getSynligtOrd();
+        String visibleWord = hGame.getVisiableWord(); //= game.getSynligtOrd();
 
         textViewWordToDisplay.setText(visibleWord);
 
-        int cntWrongLetters = game.getAntalForkerteBogstaver();
+        int cntWrongLetters = hGame.getCntWrongGuess(); // game.getAntalForkerteBogstaver();
         if (cntWrongLetters != 0) {
             try {
                 Field fieldToConvert = R.drawable.class.getDeclaredField("forkert" + Integer.toString(cntWrongLetters));
@@ -103,26 +106,23 @@ public class MainActivity extends AppCompatActivity{
             imageView.setImageResource(R.drawable.galge);
         }
 
-        if (game.erSpilletSlut()) {
-
-            if (game.erSpilletVundet()) {
+        //if (game.erSpilletSlut()) {
+        if (hGame.isFinished()) {
+            //  if (game.erSpilletVundet()) {
+            if (hGame.isWon()) {
                 // The game has been won
                 Intent i = new Intent(this, WinActivity.class);
-                i.putExtra("hasWon", game.erSpilletVundet());
-                i.putExtra("printObj", game.getAntalForkerteBogstaver());
+                i.putExtra("hasWon", hGame.isWon()); //game.erSpilletVundet()
+                i.putExtra("printObj", hGame.getCntWrongGuess()); //game.getAntalForkerteBogstaver()
                 this.startActivity(i);
-            }
-            else if (game.erSpilletTabt()) {
+            } else { //if (game.erSpilletTabt()) {
                 // The game has been lost
                 Intent i = new Intent(this, LostActivity.class);
-                i.putExtra("hasWon", game.erSpilletVundet());
-                i.putExtra("printObj", game.getOrdet());
+                i.putExtra("hasWon", hGame.isWon()); // game.erSpilletVundet()
+                i.putExtra("printObj", hGame.getWordToGuess()); //game.getOrdet()
                 this.startActivity(i);
 
                 this.startActivity(i);
-            }
-            else {
-                // The game is done but neither won or lost
             }
 
         }

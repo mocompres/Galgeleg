@@ -17,7 +17,8 @@ public class HangmanController {
 
     public void startGame() {
         // TODO: get word to guess import from a libary
-
+        wordToGuess = "hangman";
+        constructVisiableWord();
     }
 
     public void guessLetter(String letter) {
@@ -41,13 +42,13 @@ public class HangmanController {
             if (guessedLetters.indexOf(c) != -1)
                 visiableWord += c;
             else
-                visiableWord += "_";
+                visiableWord += "*";
         }
     }
 
     public boolean isFinished() {
         // TODO: test if game is done
-        if (cntWrongGuess < 6 && visiableWord.contains("_")) {
+        if (cntWrongGuess < 6 && visiableWord.contains("*")) {
             return false;
         }
         else {
@@ -57,7 +58,7 @@ public class HangmanController {
 
     public boolean isWon() {
         // TODO: test is finish is won
-        if (isFinished() && visiableWord.contains("_"))
+        if (isFinished() && visiableWord.contains("*"))
             return false;
         else if (isFinished() && cntWrongGuess <= 6)
             return true;
@@ -73,5 +74,9 @@ public class HangmanController {
 
     public String getWordToGuess() {
         return wordToGuess;
+    }
+
+    public int getCntWrongGuess() {
+        return cntWrongGuess;
     }
 }
