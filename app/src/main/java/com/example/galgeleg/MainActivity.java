@@ -104,17 +104,17 @@ public class MainActivity extends AppCompatActivity{
         }
 
         if (game.erSpilletSlut()) {
-            Intent i = new Intent(this, EndOfGame.class);
 
             if (game.erSpilletVundet()) {
                 // The game has been won
+                Intent i = new Intent(this, WinActivity.class);
                 i.putExtra("hasWon", game.erSpilletVundet());
                 i.putExtra("printObj", game.getAntalForkerteBogstaver());
                 this.startActivity(i);
             }
             else if (game.erSpilletTabt()) {
                 // The game has been lost
-
+                Intent i = new Intent(this, LostActivity.class);
                 i.putExtra("hasWon", game.erSpilletVundet());
                 i.putExtra("printObj", game.getOrdet());
                 this.startActivity(i);
