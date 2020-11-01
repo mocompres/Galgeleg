@@ -8,16 +8,16 @@ public class HangmanController {
     String guessedLetters;
     int cntWrongGuess;
 
-    HangmanController() {
+    HangmanController(String word) { // libary to read a list of words
         visiableWord = "";
-        wordToGuess = "";
+        wordToGuess = word;
         cntWrongGuess = 0;
         guessedLetters = "";
     }
 
     public void startGame() {
         // TODO: get word to guess import from a libary
-        wordToGuess = "hangman";
+        //wordToGuess = "hangman";
         constructVisiableWord();
     }
 

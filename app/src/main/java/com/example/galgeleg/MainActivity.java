@@ -14,9 +14,10 @@ import java.lang.reflect.Field;
 
 public class MainActivity extends AppCompatActivity{
 
+    Library lib;
     static Button[] letterBTN = new Button[29];
     //static Galgelogik game = new Galgelogik();
-    static HangmanController hGame = new HangmanController();
+    static HangmanController hGame;
     TextView textViewWordToDisplay;
     ImageView imageView;
 
@@ -26,6 +27,8 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
         loadBTN();
 
+        lib = new Library();
+        hGame  = new HangmanController(lib.getRandomWord());
         //game.muligeOrd.clear();
         //game.muligeOrd.add("skovsnegl");
 

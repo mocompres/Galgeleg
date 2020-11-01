@@ -7,6 +7,8 @@ import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class LostActivity extends AppCompatActivity {
@@ -23,6 +25,12 @@ public class LostActivity extends AppCompatActivity {
 
         currentLayout.setBackgroundColor(Color.RED);
         textView.setText( "Du har tabt! \n Ordet var: " + i.getStringExtra("printObj"));
+
+        }
+
+        public void playAgain(View v) {
+            Intent intent = new Intent(this, MainActivity.class);
+            this.startActivity(intent);
 
         }
 }
