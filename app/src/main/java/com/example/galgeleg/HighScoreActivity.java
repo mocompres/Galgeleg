@@ -21,8 +21,7 @@ public class HighScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score);
 
-        setContentView(R.layout.activity_high_score);
-        recyclerView = (RecyclerView) findViewById(R.id.highscoreview);
+        /*recyclerView = (RecyclerView) findViewById(R.id.highscoreview);
 
         recyclerView.setHasFixedSize(true);
 
@@ -32,6 +31,6 @@ public class HighScoreActivity extends AppCompatActivity {
 
         // specify an adapter (see also next example)
         mAdapter = new MyAdapter();
-        recyclerView.setAdapter(mAdapter);
+        recyclerView.setAdapter(mAdapter);*/
     }
 }
