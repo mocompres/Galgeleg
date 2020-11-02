@@ -31,6 +31,10 @@ public class Library {
         return listOfWords.get(ran.nextInt(cntWords));
     }
 
+    public void useListFromDR() {
+
+    }
+
     public void clearList() {
         listOfWords.clear();
     }
