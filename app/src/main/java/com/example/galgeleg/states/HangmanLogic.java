@@ -1,7 +1,5 @@
 package com.example.galgeleg.states;
 
-import com.example.galgeleg.HangmanController;
-
 public class HangmanLogic {
 
     private IHangmanState state;

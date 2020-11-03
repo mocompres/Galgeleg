@@ -16,8 +16,6 @@ import java.lang.reflect.Field;
 public class MainActivity extends AppCompatActivity{
 
     Library lib;
-    //static Galgelogik game = new Galgelogik();
-    //static HangmanController hGame;
     HangmanLogic hGame;
     TextView textViewWordToDisplay;
     ImageView imageView;
@@ -30,10 +28,6 @@ public class MainActivity extends AppCompatActivity{
 
         lib = new Library();
         hGame  = new HangmanLogic(lib.getRandomWord());
-        //game.muligeOrd.clear();
-        //game.muligeOrd.add("skovsnegl");
-
-        //game.startNytSpil();
 
         imageView = findViewById(R.id.imageView);
 
@@ -54,7 +48,6 @@ public class MainActivity extends AppCompatActivity{
 
         String text = btn.getText().toString().toLowerCase();
 
-        //game.gætBogstav(text);
         hGame.guessLetter(text);
 
         viewStatusOnScreen();
@@ -63,11 +56,11 @@ public class MainActivity extends AppCompatActivity{
     }
 
     public void viewStatusOnScreen(){
-        String visibleWord = hGame.getVisiableWord(); //= game.getSynligtOrd();
+        String visibleWord = hGame.getVisiableWord();
 
         textViewWordToDisplay.setText(visibleWord);
 
-        int cntWrongLetters = hGame.getCntWrongGuess(); // game.getAntalForkerteBogstaver();
+        int cntWrongLetters = hGame.getCntWrongGuess();
         if (cntWrongLetters != 0) {
             try {
                 Field fieldToConvert = R.drawable.class.getDeclaredField("forkert" + Integer.toString(cntWrongLetters));
@@ -84,13 +77,13 @@ public class MainActivity extends AppCompatActivity{
 
             Intent i = new Intent(this, EndOfGameActivity.class);
             if (hGame.isWon()) {
-                i.putExtra("printObj", hGame.getCntWrongGuess()); //game.getAntalForkerteBogstaver()
+                i.putExtra("printObj", hGame.getCntWrongGuess());
             }
             else {
                 i.putExtra("printObj", hGame.getWordToGuess());
             }
 
-            i.putExtra("hasWon", hGame.isWon()); //game.erSpilletVundet()
+            i.putExtra("hasWon", hGame.isWon());
             i.putExtra("playerName", playerName);
             this.startActivity(i);
 
