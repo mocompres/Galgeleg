@@ -1,5 +1,8 @@
 package com.example.galgeleg;
 
-public interface IHighScoreData {
+import java.util.ArrayList;
 
+public interface IHighScoreData {
+    void saveHighScoreList(ArrayList<Score> list);
+    ArrayList<Score> getHighScoreList();
 }
