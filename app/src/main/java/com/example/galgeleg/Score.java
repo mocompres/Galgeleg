@@ -12,7 +12,7 @@ public Score(String name, int score) {
 
 @Override
 public int compareTo(Score score) {
-        return score.getPoints()-this.points;
+        return this.points-score.getPoints();
         }
 
 public int getPoints() {
