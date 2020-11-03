@@ -7,16 +7,16 @@
         android:id="@+id/nameView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:text="Oliver: " />
+        android:text="Oliver: "
+        android:textSize="40dp"/>
 
     <TextView
+        android:id="@+id/scoreView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:id="@+id/scoreView"
-        android:layout_toRightOf="@id/nameView"
-        android:layout_weight="1"
+        android:layout_toEndOf="@id/nameView"
         android:text="4"
+        android:textSize="40dp"
         />
 
 

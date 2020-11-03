@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 
 import java.util.ArrayList;
 
-public class HighScoreActivity extends AppCompatActivity {
+public class HighScoreActivity extends AppCompatActivity implements View.OnClickListener   {
 
     // RecyclerView stuff
     private RecyclerView recyclerView;
@@ -19,6 +22,9 @@ public class HighScoreActivity extends AppCompatActivity {
     // HighScore stuff
     private HighscoreController highscore;
 
+    private Button playAgainBTN;
+    private Button menuBTN;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -26,16 +32,38 @@ public class HighScoreActivity extends AppCompatActivity {
 
         highscore = new HighscoreController();
 
+        playAgainBTN = findViewById(R.id.playAgainBTN);
+        playAgainBTN.setOnClickListener(this);
+
+        menuBTN = findViewById(R.id.menuBTN);
+        menuBTN.setOnClickListener(this);
+        // use a linear layout manager
+        initRecyclerView();
+    }
+
+    void initRecyclerView() {
         recyclerView = (RecyclerView) findViewById(R.id.highscorelist);
 
-        recyclerView.setHasFixedSize(true);
-
-        // use a linear layout manager
-        layoutManager = new LinearLayoutManager(this);
-        recyclerView.setLayoutManager(layoutManager);
-
         // specify an adapter (see also next example)
-        mAdapter = new HighScoreAdapter(highscore.getHighScoreList());
+        mAdapter = new HighScoreAdapter(highscore.getHighScoreList(), this);
         recyclerView.setAdapter(mAdapter);
+        recyclerView.setLayoutManager( new LinearLayoutManager(this));
+
+    }
+
+    @Override
+    public void onClick(View v) {
+        Intent i;
+
+        switch (v.getId()) {
+            case R.id.playAgainBTN:
+                i = new Intent(this, MainActivity.class);
+                startActivity(i);
+                break;
+            case R.id.menuBTN:
+                i = new Intent(this, WelcomeActivity.class);
+                startActivity(i);
+                break;
+        }
     }
 }

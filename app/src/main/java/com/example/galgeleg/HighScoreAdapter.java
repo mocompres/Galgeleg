@@ -1,5 +1,6 @@
 package com.example.galgeleg;
 
+import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 
 public class HighScoreAdapter extends RecyclerView.Adapter<HighScoreAdapter.MyViewHolder> {
     private ArrayList<Score> mDataset;
-
+    private Context context;
     // Provide a reference to the views for each data item
     // Complex data items may need more than one view per item, and
     // you provide access to all the views for a data item in a view holder
@@ -29,8 +30,9 @@ public class HighScoreAdapter extends RecyclerView.Adapter<HighScoreAdapter.MyVi
     }
 
     // Provide a suitable constructor (depends on the kind of dataset)
-    public HighScoreAdapter(ArrayList<Score> myDataset) {
-        mDataset = myDataset;
+    public HighScoreAdapter(ArrayList<Score> myDataset, Context context) {
+        this.mDataset = myDataset;
+        this.context = context;
     }
 
     // Create new views (invoked by the layout manager)
@@ -49,8 +51,8 @@ public class HighScoreAdapter extends RecyclerView.Adapter<HighScoreAdapter.MyVi
     public void onBindViewHolder(MyViewHolder holder, int position) {
         // - get element from your dataset at this position
         // - replace the contents of the view with that element
-        holder.nameView.setText(mDataset.get(position).getName());
-        holder.scoreView.setText(mDataset.get(position).getPoints());
+        holder.nameView.setText(mDataset.get(position).getName() +": ");
+        holder.scoreView.setText(Integer.toString(mDataset.get(position).getPoints()));
 
 
     }
