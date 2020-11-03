@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity{
 
         if (hGame.isFinished()) {
 
-            Intent i = new Intent(this, EndOfGame.class);
+            Intent i = new Intent(this, EndOfGameActivity.class);
             if (hGame.isWon()) {
                 i.putExtra("printObj", hGame.getCntWrongGuess()); //game.getAntalForkerteBogstaver()
             }

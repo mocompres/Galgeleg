@@ -9,6 +9,8 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Random;
 import java.net.URL;
+import java.util.concurrent.Executors;
+import java.util.concurrent.ThreadFactory;
 
 public class Library {
 
@@ -48,7 +50,17 @@ public class Library {
 
 
     public void useListFromDR() throws Exception {
-        String data = hentUrl("https://www.dr.dk");
+        String data = hentUrl("https://www.dr.dk");;
+
+        ThreadFactory thrdfctry = Executors.defaultThreadFactory();
+        Thread t = thrdfctry.newThread(new Runnable() {
+            @Override
+            public void run() {
+               // data = hentUrl("https://www.dr.dk");
+            }
+        });
+        t.start();
+
         //System.out.println("data = " + data);
 
         data = data.substring(data.indexOf("<body")). // fjern headere

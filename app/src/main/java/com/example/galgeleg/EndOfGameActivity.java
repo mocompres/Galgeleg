@@ -10,7 +10,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
-public class EndOfGame extends AppCompatActivity {
+public class EndOfGameActivity extends AppCompatActivity {
 
     Boolean isWon;
     String playerName;
