@@ -16,7 +16,7 @@ public class HighscoreController {
 
         highscoreList.add(new Score("Poulsen", 3));
 
-}
+    }
 
     public void addScore(Score score) {
         highscoreList.add(score);

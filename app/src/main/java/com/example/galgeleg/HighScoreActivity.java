@@ -11,9 +11,12 @@ import java.util.ArrayList;
 
 public class HighScoreActivity extends AppCompatActivity {
 
+    // RecyclerView stuff
     private RecyclerView recyclerView;
     private RecyclerView.Adapter mAdapter;
     private RecyclerView.LayoutManager layoutManager;
+
+    // HighScore stuff
     private HighscoreController highscore;
 
     @Override
@@ -21,7 +24,9 @@ public class HighScoreActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score);
 
-        /*recyclerView = (RecyclerView) findViewById(R.id.highscoreview);
+        highscore = new HighscoreController();
+
+        recyclerView = (RecyclerView) findViewById(R.id.highscorelist);
 
         recyclerView.setHasFixedSize(true);
 
@@ -30,7 +35,7 @@ public class HighScoreActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
 
         // specify an adapter (see also next example)
-        mAdapter = new MyAdapter();
-        recyclerView.setAdapter(mAdapter);*/
+        mAdapter = new HighScoreAdapter(highscore.getHighScoreList());
+        recyclerView.setAdapter(mAdapter);
     }
 }

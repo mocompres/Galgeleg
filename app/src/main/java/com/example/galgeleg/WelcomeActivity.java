@@ -25,13 +25,17 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view)
     {
+        Intent i;
+
         switch (view.getId()) {
             case R.id.startGameBTN:
-                Intent i = new Intent(this, MainActivity.class);
+                i = new Intent(this, MainActivity.class);
                 startActivity(i);
                 break;
             case R.id.highscoreBTN:
                 // do stuff later;
+                i = new Intent(this, HighScoreActivity.class);
+                startActivity(i);
                 break;
             default:
                 break;
