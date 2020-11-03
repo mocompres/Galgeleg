@@ -6,10 +6,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class WelcomeActivity extends AppCompatActivity implements View.OnClickListener {
 
-    @Override
+
+    private EditText playerName;
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_welcome);
@@ -19,6 +22,8 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
 
         Button highscoreBTN = findViewById(R.id.highscoreBTN);
         highscoreBTN.setOnClickListener(this);
+
+        playerName = findViewById(R.id.nameEditText);
 
     }
 
@@ -30,6 +35,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()) {
             case R.id.startGameBTN:
                 i = new Intent(this, MainActivity.class);
+                i.putExtra("playerName", playerName.getText());
                 startActivity(i);
                 break;
             case R.id.highscoreBTN:
