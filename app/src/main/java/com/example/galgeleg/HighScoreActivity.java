@@ -34,8 +34,20 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_high_score);
+        IHighScoreData data = new SharedPrefData(this);
+        highscore = new HighscoreController(data);
 
-        highscore = new HighscoreController();
+        //highscore.setHighscoreList(getHighScoreList());
+
+        Intent intent = getIntent();
+        if(intent.getBooleanExtra("isWon", false)) {
+            String name = intent.getStringExtra("playerName");
+            int point = intent.getIntExtra("score",0);
+
+            highscore.addScore(new Score(name, point));
+        }
+
+       // saveHighScoreList(highscore.getHighScoreList());
 
         playAgainBTN = findViewById(R.id.playAgainBTN);
         playAgainBTN.setOnClickListener(this);
@@ -45,12 +57,6 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
         // use a linear layout manager
         initRecyclerView();
 
-
-        highscore.addScore(new Score("Thomas", 8));
-        saveHighScoreList(highscore.getHighScoreList());
-        highscore.setHighscoreList(getHighScoreList());
-
-        initRecyclerView();
 
     }
 
@@ -79,7 +85,7 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
                 break;
         }
     }
-
+/*
     public void saveHighScoreList(ArrayList<Score> list) {
 
         ArrayList<String> strToConvert = new ArrayList<String>();
@@ -123,4 +129,5 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
 
         return list;
     }
+    */
 }

@@ -18,8 +18,14 @@ import java.lang.reflect.Type;
 import java.util.ArrayList;
 import java.util.Collections;
 
-public class SharedPrefData extends AppCompatActivity  implements IHighScoreData {
-    @Override
+public class SharedPrefData  implements IHighScoreData {
+
+    Context context;
+
+    SharedPrefData(Context con) {
+        this.context = con;
+    }
+
     public void saveHighScoreList(ArrayList<Score> list) {
 
         ArrayList<String> strToConvert = new ArrayList<String>();
@@ -30,7 +36,7 @@ public class SharedPrefData extends AppCompatActivity  implements IHighScoreData
 
 
 
-        SharedPreferences sharedPref = getSharedPreferences("Shared Pref",MODE_PRIVATE);
+        SharedPreferences sharedPref = context.getSharedPreferences("Shared Pref",context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
         Gson gson = new Gson();
         String json = gson.toJson(strToConvert);
@@ -43,7 +49,7 @@ public class SharedPrefData extends AppCompatActivity  implements IHighScoreData
 
         ArrayList<String> strToConvert;
 
-        SharedPreferences sharedPref = getSharedPreferences("Shared Pref",MODE_PRIVATE);
+        SharedPreferences sharedPref = context.getSharedPreferences("Shared Pref",context.MODE_PRIVATE);
         Gson gson = new Gson();
         String json = sharedPref.getString("MyList",null);
         Type type = new TypeToken<ArrayList<String>>() {}.getType();

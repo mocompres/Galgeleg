@@ -7,10 +7,14 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TextView;
 
 public class EndOfGame extends AppCompatActivity {
 
+    Boolean isWon;
+    String playerName;
+    int points;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,21 +24,31 @@ public class EndOfGame extends AppCompatActivity {
         ConstraintLayout currentLayout = (ConstraintLayout) findViewById(R.id.mainlayer);
         TextView textView = findViewById(R.id.textView);
 
+        playerName = i.getStringExtra("playerName");
+
+        isWon = i.getBooleanExtra("hasWon", false);
         // has won
-        if (i.getBooleanExtra("hasWon", false)) {
+        if (isWon) {
             currentLayout.setBackgroundColor(Color.GREEN);
-            textView.setText("Antal forsøg: " + i.getIntExtra("printObj", 0));
+            points = i.getIntExtra("printObj", 0);
+            textView.setText("Antal forsøg: " + Integer.toString(points));
 
         } else { // has lost
             currentLayout.setBackgroundColor(Color.RED);
+
             textView.setText("Du har tabt! \n Ordet var: " + i.getStringExtra("printObj"));
 
         }
 
     }
 
-    public void playAgain(View v) {
-        Intent intent = new Intent(this, MainActivity.class);
+    public void viewHighScore(View v) {
+        Intent intent = new Intent(this, HighScoreActivity.class);
+        intent.putExtra("isWon", isWon);
+        if (isWon) {
+            intent.putExtra("playerName", playerName);
+            intent.putExtra("score", points);
+        }
         this.startActivity(intent);
     }
 

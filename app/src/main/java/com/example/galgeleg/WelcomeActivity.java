@@ -35,7 +35,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
         switch (view.getId()) {
             case R.id.startGameBTN:
                 i = new Intent(this, MainActivity.class);
-                i.putExtra("playerName", playerName.getText());
+                i.putExtra("playerName", playerName.getText().toString());
                 startActivity(i);
                 break;
             case R.id.highscoreBTN:

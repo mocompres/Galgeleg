@@ -6,9 +6,9 @@ import java.util.Collections;
 public class HighscoreController {
 
     ArrayList<Score> highscoreList;
-   // IHighScoreData data = new SharedPrefData();
+    IHighScoreData data;
 
-    public HighscoreController () {
+    public HighscoreController (IHighScoreData highScoreData) {
         highscoreList = new ArrayList<Score>();
 
         highscoreList.add(new Score("Oliver", 5));
@@ -17,17 +17,17 @@ public class HighscoreController {
 
         highscoreList.add(new Score("Poulsen", 3));
 
-      //  this.data = highScoreData;
+        this.data = highScoreData;
 
-      //  highscoreList = data.getHighScoreList();
+        highscoreList = data.getHighScoreList();
 
 
     }
 
     public void addScore(Score score) {
         highscoreList.add(score);
+        data.saveHighScoreList(highscoreList);
 
-       // data.getHighScoreList();
     }
 
     public Score getHighestScore() {
