@@ -1,6 +1,8 @@
 package com.example.galgeleg;
 
+import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -68,7 +70,9 @@ public class Library {
 
     public static String hentUrl(String url) throws Exception {
         System.out.println("Henter data fra " + url);
-        BufferedReader br = new BufferedReader(new InputStreamReader(new URL(url).openStream()));
+        InputStream is = new URL(url).openStream();
+        InputStreamReader isr = new InputStreamReader(is);
+        BufferedReader br = new BufferedReader(isr);
         StringBuilder sb = new StringBuilder();
         String linje = br.readLine();
         while (linje != null) {

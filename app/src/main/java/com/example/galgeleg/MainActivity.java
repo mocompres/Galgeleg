@@ -2,14 +2,14 @@ package com.example.galgeleg;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.app.AlertDialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import com.example.galgeleg.states.HangmanLogic;
 
 import java.lang.reflect.Field;
 
@@ -17,7 +17,8 @@ public class MainActivity extends AppCompatActivity{
 
     Library lib;
     //static Galgelogik game = new Galgelogik();
-    static HangmanController hGame;
+    //static HangmanController hGame;
+    HangmanLogic hGame;
     TextView textViewWordToDisplay;
     ImageView imageView;
     String playerName;
@@ -28,12 +29,11 @@ public class MainActivity extends AppCompatActivity{
         setContentView(R.layout.activity_main);
 
         lib = new Library();
-        hGame  = new HangmanController(lib.getRandomWord());
+        hGame  = new HangmanLogic(lib.getRandomWord());
         //game.muligeOrd.clear();
         //game.muligeOrd.add("skovsnegl");
 
         //game.startNytSpil();
-        hGame.startGame();
 
         imageView = findViewById(R.id.imageView);
 
