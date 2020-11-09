@@ -27,8 +27,8 @@ public class Library {
             listOfWords.add("hangman");
             listOfWords.add("test");
             listOfWords.add("keyboard");
-            listOfWords.add("kk");
-            listOfWords.add("d");
+            listOfWords.add("galge");
+            listOfWords.add("skærm");
         }
 
     }
