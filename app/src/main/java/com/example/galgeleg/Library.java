@@ -1,9 +1,13 @@
 package com.example.galgeleg;
 
+import android.provider.Telephony;
+
 import java.io.BufferedInputStream;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStream;
 import java.io.InputStreamReader;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
@@ -19,17 +23,23 @@ public class Library {
     public Library() {
         listOfWords = new ArrayList<String>();
 
+        WordsFromWeb wordList = new WordsFromWeb("https://www.dr.dk");
 
+        //listOfWords.add("hangman");
         try {
-            useListFromDR();
+            String input = wordList.execute().get();
+            convertWebToWordList(input);
+            listOfWords.add("working");
+           // useListFromDR();
 
         } catch (Exception e) {
             listOfWords.add("hangman");
-            listOfWords.add("test");
-            listOfWords.add("keyboard");
-            listOfWords.add("galge");
-            listOfWords.add("skærm");
+        //    listOfWords.add("test");
+        //    listOfWords.add("keyboard");
+        //    listOfWords.add("galge");
+        //    listOfWords.add("skærm");
         }
+
 
     }
 
@@ -49,9 +59,12 @@ public class Library {
     }
 
 
-    public void useListFromDR() throws Exception {
-        String data = hentUrl("https://www.dr.dk");;
+    public void convertWebToWordList(String wordStr) throws Exception {
 
+        String data = wordStr;
+        ;
+
+        /*
         ThreadFactory thrdfctry = Executors.defaultThreadFactory();
         Thread t = thrdfctry.newThread(new Runnable() {
             @Override
@@ -59,7 +72,9 @@ public class Library {
                // data = hentUrl("https://www.dr.dk");
             }
         });
-        t.start();
+        t.start(); */
+
+        //data = hentUrl("https://www.dr.dk");
 
         //System.out.println("data = " + data);
 
@@ -81,7 +96,7 @@ public class Library {
     }
 
     public static String hentUrl(String url) throws Exception {
-        System.out.println("Henter data fra " + url);
+        /*System.out.println("Henter data fra " + url);
         InputStream is = new URL(url).openStream();
         InputStreamReader isr = new InputStreamReader(is);
         BufferedReader br = new BufferedReader(isr);
@@ -91,7 +106,33 @@ public class Library {
             sb.append(linje + "\n");
             linje = br.readLine();
         }
-        return sb.toString();
+        return sb.toString(); */
+
+
+        String line = "";
+        try {
+
+            URL urlTest = new URL("https://www.google.com/");
+
+            // read text returned by server
+            BufferedReader in = new BufferedReader(new InputStreamReader(urlTest.openStream()));
+
+
+            while ((line = in.readLine()) != null) {
+                System.out.println(line);
+            }
+            in.close();
+
+        }
+        catch (MalformedURLException e) {
+            System.out.println("Malformed URL: " + e.getMessage());
+        }
+        catch (IOException e) {
+            System.out.println("I/O Error: " + e.getMessage());
+        }
+
+        return line;
+
     }
 
     public void clearList() {
