@@ -39,7 +39,7 @@ public class WelcomeActivity extends AppCompatActivity implements View.OnClickLi
                 startActivity(i);
                 break;
             case R.id.highscoreBTN:
-                // do stuff later;
+                // do stuff later
                 i = new Intent(this, HighScoreActivity.class);
                 startActivity(i);
                 break;
