@@ -22,6 +22,7 @@
         </activity>
         <activity android:name=".EndOfGameActivity" />
         <activity android:name=".MainActivity"></activity>
+        <activity android:name=".ChooseWordActivity"></activity>
     </application>
 
 </manifest>

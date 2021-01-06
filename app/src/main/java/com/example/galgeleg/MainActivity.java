@@ -20,14 +20,24 @@ public class MainActivity extends AppCompatActivity{
     TextView textViewWordToDisplay;
     ImageView imageView;
     String playerName;
+    String wordToGuess;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        lib = new Library();
-        hGame  = new HangmanLogic(lib.getRandomWord());
+        //lib = new Library();
+        //hGame  = new HangmanLogic(lib.getRandomWord());
+
+        // Start game
+        wordToGuess = getIntent().getStringExtra("wordToGuess");
+        if(wordToGuess == null) {
+            wordToGuess = "hangman";
+        }
+
+        hGame = new HangmanLogic(wordToGuess);
+
 
         imageView = findViewById(R.id.imageView);
 
