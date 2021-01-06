@@ -76,7 +76,7 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
 
         switch (v.getId()) {
             case R.id.playAgainBTN:
-                i = new Intent(this, MainActivity.class);
+                i = new Intent(this, ChooseWordActivity.class);
                 startActivity(i);
                 break;
             case R.id.menuBTN:
