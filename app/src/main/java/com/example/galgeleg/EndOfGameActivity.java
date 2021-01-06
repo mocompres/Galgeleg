@@ -8,8 +8,11 @@ import android.graphics.Color;
 import android.media.MediaPlayer;
 import android.os.Bundle;
 import android.view.View;
+import android.view.animation.Animation;
 import android.widget.Button;
 import android.widget.TextView;
+
+import com.airbnb.lottie.LottieAnimationView;
 
 public class EndOfGameActivity extends AppCompatActivity {
 
@@ -32,16 +35,22 @@ public class EndOfGameActivity extends AppCompatActivity {
         MediaPlayer mpLoser = MediaPlayer.create(this,R.raw.loser);
         MediaPlayer mpWinner = MediaPlayer.create(this,R.raw.winner);
 
+        // animation from 3. party lib
+        LottieAnimationView animationView = findViewById(R.id.animationView);
+
+
         // has won
         if (isWon) {
             currentLayout.setBackgroundColor(Color.GREEN); // color
             mpWinner.start(); // sound play
+            animationView.setAnimation(R.raw.winner_animation); // animation
             points = i.getIntExtra("printObj", 0);
             textView.setText("Antal forsøg: " + Integer.toString(points)); // print
 
         } else { // has lost
             currentLayout.setBackgroundColor(Color.RED); // color
             mpLoser.start(); // sound play
+            animationView.setAnimation(R.raw.loser_animation); // animation
             textView.setText("Du har tabt! \n Ordet var: " + i.getStringExtra("printObj")); // print
 
         }
