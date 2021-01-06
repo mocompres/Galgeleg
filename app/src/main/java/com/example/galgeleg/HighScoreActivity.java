@@ -29,6 +29,7 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
 
     private Button playAgainBTN;
     private Button menuBTN;
+    private String playername;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,12 +40,16 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
 
         //highscore.setHighscoreList(getHighScoreList());
 
+
+
         Intent intent = getIntent();
+        playername = intent.getStringExtra("playerName");
+
         if(intent.getBooleanExtra("isWon", false)) {
-            String name = intent.getStringExtra("playerName");
+
             int point = intent.getIntExtra("score",0);
 
-            highscore.addScore(new Score(name, point));
+            highscore.addScore(new Score(playername, point));
         }
 
        // saveHighScoreList(highscore.getHighScoreList());
@@ -77,6 +82,7 @@ public class HighScoreActivity extends AppCompatActivity implements View.OnClick
         switch (v.getId()) {
             case R.id.playAgainBTN:
                 i = new Intent(this, ChooseWordActivity.class);
+                i.putExtra("playerName", playername);
                 startActivity(i);
                 break;
             case R.id.menuBTN:

@@ -40,9 +40,9 @@ public class WordListAdapter extends BaseAdapter {
         TextView textView = new TextView(this.context);
         textView.setText(getItem(position));
 
-        convertView = textView;
+        //convertView = textView;
 
 
-        return convertView;
+        return textView;
     }
 }
